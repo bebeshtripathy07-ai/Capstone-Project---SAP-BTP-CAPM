@@ -54,19 +54,19 @@
             ]
           },
           "manager2": {
-            "password": "@123",
+            "password": "Admin@123",
             "roles": [
               "VendorManager"
             ]
           },
           "approver1": {
-            "password": "Approver@123",
+            "password": "Admin@123",
             "roles": [
               "Approver"
             ]
           },
           "viewer1": {
-            "password": "Viewer@123",
+            "password": "Admin@123",
             "roles": [
               "Viewer"
             ]
