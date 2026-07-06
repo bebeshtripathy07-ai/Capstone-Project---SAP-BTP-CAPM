@@ -1,0 +1,98 @@
+{
+  "name": "vendor-invoice-management-system",
+  "version": "1.0.0",
+  "description": "Vendor Invoice Management System using SAP CAPM",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^3",
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4",
+    "@sap-cloud-sdk/resilience": "^4",
+    "@sap/cds": "^10.0.3",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4",
+    "@sap/cds-dk": "^10.0.3",
+    "cds-plugin-ui5": "^0.17.0"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "watch-invoiceapp": "cds watch --open invoiceapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-vendorapp": "cds watch --open vendorapp/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-portalapp": "cds watch --open portalapp/index.html?sap-ui-xx-viewCache=false --livereload false"
+  },
+  "cds": {
+    "requires": {
+
+
+  "db": {
+        "[development]": {
+          "kind": "sqlite"
+        },
+        "[production]": {
+          "kind": "hana"
+        }
+      },
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "admin": {
+            "password": "Admin@123",
+            "roles": [
+              "Admin",
+              "VendorManager",
+              "Approver",
+              "Viewer"
+            ]
+          },
+          "manager1": {
+            "password": "Admin@123",
+            "roles": [
+              "VendorManager"
+            ]
+          },
+          "manager2": {
+            "password": "@123",
+            "roles": [
+              "VendorManager"
+            ]
+          },
+          "approver1": {
+            "password": "Approver@123",
+            "roles": [
+              "Approver"
+            ]
+          },
+          "viewer1": {
+            "password": "Viewer@123",
+            "roles": [
+              "Viewer"
+            ]
+          }
+        }
+      },
+      "API_BUSINESS_PARTNER": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_BUSINESS_PARTNER"
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa"
+        }
+      },
+      "destinations": true,
+      "html5-repo": true
+    }
+
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/invoiceapp",
+    "app/vendorapp",
+    "app/portalapp"
+  ]
+}

@@ -1,0 +1,54 @@
+[
+  {
+    "BusinessPartner": "SUP-2001",
+    "BusinessPartnerFullName": "Northwind Traders",
+    "to_BusinessPartnerAddress": {
+      "results": [
+        {
+          "Country": "US",
+          "to_EmailAddress": { "results": [{ "EmailAddress": "contact@northwind.com" }] },
+          "to_PhoneNumber":  { "results": [{ "PhoneNumber": "+1-202-555-3001" }] }
+        }
+      ]
+    }
+  },
+  {
+    "BusinessPartner": "SUP-2002",
+    "BusinessPartnerFullName": "Baltic Freight AS",
+    "to_BusinessPartnerAddress": {
+      "results": [
+        {
+          "Country": "NO",
+          "to_EmailAddress": { "results": [{ "EmailAddress": "info@balticfreight.no" }] },
+          "to_PhoneNumber":  { "results": [{ "PhoneNumber": "+47-21-555-3002" }] }
+        }
+      ]
+    }
+  },
+  {
+    "BusinessPartner": "SUP-1001",
+    "BusinessPartnerFullName": "Acme Corp",
+    "to_BusinessPartnerAddress": {
+      "results": [
+        {
+          "Country": "US",
+          "to_EmailAddress": { "results": [{ "EmailAddress": "contact@acme.com" }] },
+          "to_PhoneNumber":  { "results": [{ "PhoneNumber": "+1-202-555-0101" }] }
+        }
+      ]
+    }
+  },
+  {
+    "BusinessPartner": "SUP-2003",
+    "BusinessPartnerFullName": "Rhine Components GmbH",
+    "to_BusinessPartnerAddress": {
+      "results": [
+        {
+          "Country": "DE",
+          "to_EmailAddress": { "results": [{ "EmailAddress": "sales@rhinecomp.de" }] },
+          "to_PhoneNumber":  { "results": [{ "PhoneNumber": "+49-221-555-3003" }] }
+        }
+      ]
+    }
+  }
+]
