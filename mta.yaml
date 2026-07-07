@@ -162,9 +162,25 @@ resources:
       service-plan: hdi-shared
   - name: vendor-invoice-management-system-destination
     type: org.cloudfoundry.managed-service
+    requires:
+      - name: srv-api
     parameters:
       service: destination
       service-plan: lite
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            existing_destinations_policy: update
+            destinations:
+              - Name: srv-api
+                Description: CAP service for vendor invoice management
+                URL: ~{srv-api/srv-url}
+                Type: HTTP
+                ProxyType: Internet
+                Authentication: NoAuthentication
+                HTML5.ForwardAuthToken: true
+                HTML5.DynamicDestination: true
 
   - name: vendor-invoice-management-system-html5-repo-host
     type: org.cloudfoundry.managed-service

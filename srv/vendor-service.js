@@ -1,4 +1,5 @@
 const cds = require('@sap/cds');
+const { triggerInvoiceApproval } = require('./lib/sbpa');
 
 module.exports = cds.service.impl(async function () {
 
@@ -107,6 +108,20 @@ module.exports = cds.service.impl(async function () {
       timestamp: new Date().toISOString(),
       comments: 'Invoice submitted for approval'
     });
+
+    // Trigger the approval process in SAP Build Process Automation.
+    // A failure here must not roll back the submission — the approver
+    // can still act on the invoice from the approver app.
+    try {
+      const vendor = await SELECT.one.from(Vendors).where({ ID: invoice.vendor_ID });
+      await triggerInvoiceApproval({
+        ...invoice,
+        submittedBy: user,
+        vendorName: vendor ? vendor.name : ''
+      });
+    } catch (e) {
+      console.error(`SBPA trigger failed for invoice ${invoiceID}:`, e.message);
+    }
 
     return SELECT.one.from(Invoices).where({ ID: invoiceID });
   });

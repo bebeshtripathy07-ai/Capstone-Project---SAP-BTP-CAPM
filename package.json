@@ -14,10 +14,16 @@
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
     "@sap/cds-dk": "^10.0.3",
-    "cds-plugin-ui5": "^0.17.0"
+    "axios": "^1.18.1",
+    "cds-plugin-ui5": "^0.17.0",
+    "chai": "^4.5.0",
+    "chai-as-promised": "^7.1.2",
+    "chai-subset": "^1.6.0",
+    "jest": "^30.4.2"
   },
   "scripts": {
     "start": "cds-serve",
+    "test": "jest --runInBand --forceExit",
     "watch": "cds watch",
     "watch-invoiceapp": "cds watch --open invoiceapp/index.html?sap-ui-xx-viewCache=false --livereload false",
     "watch-vendorapp": "cds watch --open vendorapp/index.html?sap-ui-xx-viewCache=false --livereload false",
@@ -25,9 +31,7 @@
   },
   "cds": {
     "requires": {
-
-
-  "db": {
+      "db": {
         "[development]": {
           "kind": "sqlite"
         },
@@ -85,7 +89,6 @@
       "destinations": true,
       "html5-repo": true
     }
-
   },
   "workspaces": [
     "app/*"

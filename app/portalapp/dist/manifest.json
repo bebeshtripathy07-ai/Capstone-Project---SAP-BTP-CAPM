@@ -29,6 +29,19 @@
 					"odataVersion": "4.0"
 				}
 			}
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"portalapp-display": {
+					"semanticObject": "Portal",
+					"action": "display",
+					"title": "{{appTitle}}",
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					}
+				}
+			}
 		}
 	},
 	"sap.ui": {
@@ -147,6 +160,10 @@
 			}
 		},
 		"flexBundle": false
+	},
+	"sap.cloud": {
+		"service": "vendorinvoicemanagementsystem",
+		"public": true
 	},
 	"sap.fiori": {
 		"registrationIds": [],
